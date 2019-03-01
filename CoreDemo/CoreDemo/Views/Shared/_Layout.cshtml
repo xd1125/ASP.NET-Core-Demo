@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" asp-href-include="css/*" asp-href-exclude="css/all.min.css" />
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" asp-href-include="css/all.min.css" />
+    </environment>
+
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img asp-append-version="true" src="~/image/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                @ViewBag.Title
+            </a>
+        </nav>
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

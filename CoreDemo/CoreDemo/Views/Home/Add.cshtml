@@ -1,0 +1,74 @@
+﻿@using CoreDemoModels;
+@model Cinema;
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<div class="container">
+    <form asp-action="Add">
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label">电影院名称</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Location" class="col-sm-2 col-form-label">电影院位置</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="Location">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Capacity" class="col-sm-2 col-form-label">电影院容纳人数</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" asp-for="Capacity">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-5">
+                <button type="submit" class="btn btn-primary mb-2">添加</button>
+                <a class="btn btn-primary mb-2" asp-controller="Home" asp-action="Index">返回</a>
+                @*@Html.ActionLink("返回", "Index", "Home", new { }, new { @class = "btn btn-primary mb-2" })*@
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@*@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Name, "电影院名称")
+        <div class="col-sm-10">
+            @Html.TextBoxFor(c => c.Name)
+            @Html.ValidationMessageFor(c => c.Name)
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Location, "电影院位置")
+        <div class="col-sm-10">
+            @Html.TextBoxFor(c => c.Location)
+            @Html.ValidationMessageFor(c => c.Location)
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Capacity, "电影院座位数")
+        <div class="col-sm-10">
+            @Html.TextBoxFor(c => c.Capacity,new { type="number"})
+            @Html.ValidationMessageFor(c => c.Capacity)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-primary mb-2">添加</button>
+            @Html.ActionLink("返回", "Index", "Home", new { }, new { @class= "btn btn-primary mb-2" })
+        </div>
+    </div>
+}*@
+
+

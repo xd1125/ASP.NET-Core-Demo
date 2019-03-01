@@ -1,0 +1,16 @@
+﻿@using CoreDemoModels;
+@model Movie
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="container">
+    <p>电影院编号：@Model.CinemaId</p>
+    <p>电影编号:@Model.Id</p>
+    <p>电影名称:@Model.Name</p>
+    <p>主演：@Model.Starring</p>
+    <p>时间：@Model.ReleaseDate.ToString("yyyy/MM/dd")</p>
+    <a class="btn btn-primary" asp-controller="Movie" asp-action="Index" asp-route-cinemaId="@Model.CinemaId">返回</a>
+</div>
+@*@Html.ActionLink("返回","Index","Movie",new { cinemaId=Model.CinemaId},new { @class= "btn btn-primary" })*@

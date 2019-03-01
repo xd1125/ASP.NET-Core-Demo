@@ -1,0 +1,30 @@
+﻿@using CoreDemoModels;
+@model IEnumerable<Movie>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="container">
+
+    @Html.ActionLink("添加电影", "Add", "Movie", new { cinemaId = ViewBag.CinemaId }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("返回", "Index", "Home", new { }, new { @class = "btn btn-primary" })
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">电影编号</th>
+                <th scope="col">电影名称</th>
+                <th scope="col">主要演员</th>
+                <th scope="col">结束时间</th>
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayForModel()
+        </tbody>
+    </table>
+
+    @await Component.InvokeAsync("MovieCount",new { cinemaId=ViewBag.CinemaId })
+    <vc:movie-count cinema-id="ViewBag.CinemaId"></vc:movie-count>
+</div>

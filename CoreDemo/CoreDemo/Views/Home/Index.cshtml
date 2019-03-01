@@ -1,0 +1,26 @@
+﻿@using CoreDemoModels;
+@model IEnumerable<Cinema>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Cinema cinema = Model.First();
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">电影院编号</th>
+                <th scope="col">电影院名称</th>
+                <th scope="col">电影院地址</th>
+                <th scope="col">票数</th>
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayForModel()
+        </tbody>
+    </table>
+    @Html.ActionLink("添加电影院", "Add", new { }, new { @class = "btn btn-primary" })
+</div>
+

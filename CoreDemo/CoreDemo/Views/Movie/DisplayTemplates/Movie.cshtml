@@ -1,0 +1,17 @@
+﻿@model CoreDemoModels.Movie
+
+<tr>
+    <td>@Model.Id</td>
+    <td>
+        <a class="font-italic" asp-controller="Movie" asp-action="Watch" asp-route-cinemaId="@Model.CinemaId" asp-route-movieId="@Model.Id">@Model.Name</a>
+    </td>
+    <td>@Model.Starring</td>
+    <td>@Model.ReleaseDate.ToString("yyyy/MM/dd")</td>
+    <td>
+        <a class="btn btn-info" asp-controller="Movie" asp-action="Watch" asp-route-cinemaId="@Model.CinemaId" asp-route-movieId="@Model.Id">查看</a>
+        <a class="btn btn-primary" asp-controller="Movie" asp-action="Edit" asp-route-cinemaId="@Model.CinemaId" asp-route-movieId="@Model.Id">编辑</a>
+        <a class="btn btn-danger" onClick="return confirm('确定删除?');" asp-controller="Movie" asp-action="Del" asp-route-cinemaId="@Model.CinemaId" asp-route-movieId="@Model.Id">删除</a>
+    </td>
+
+    @*<td>@Html.ActionLink("查看", "Watch", "Movie", new { cinemaId = Model.CinemaId, movieId = Model.Id }, new { @class = "btn btn-primary" })</td>*@
+</tr>
